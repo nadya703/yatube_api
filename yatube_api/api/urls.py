@@ -1,12 +1,11 @@
 from django.urls import include, path
 from rest_framework import routers
 from rest_framework.authtoken import views
-from .views import GroupViewSet, PostViewSet, CommentViewSet, UserViewSet
+from .views import GroupViewSet, PostViewSet, CommentViewSet
 
 router = routers.DefaultRouter()
 router.register('posts', PostViewSet)
 router.register('groups', GroupViewSet)
-# router.register(r'posts/{post_id}/comments/', GroupViewSet)
 
 
 urlpatterns = [
@@ -18,7 +17,7 @@ urlpatterns = [
         'post': 'create'
     }), name='post-comments'),
 
-    path('posts/<int:post_id>/comments/<int:comment_id>/', CommentViewSet.as_view({
+    path('posts/<int:post_id>/comments/<int:pk>/', CommentViewSet.as_view({
         'get': 'retrieve',
         'put': 'update',
         'patch': 'partial_update',

@@ -1,0 +1,27 @@
+POST http://127.0.0.1:8000/api/v1/api-token-auth/
+content-type: application/json
+
+{
+    "username": "orbuzik",
+    "password": "qwerty12345"
+}
+
+###
+
+GET http://127.0.0.1:8000/api/v1/posts/
+Authorization: Token eccd99424e05853f16f0feaf09ba179d8c3e8eb6
+
+###
+
+GET http://127.0.0.1:8000/api/v1/groups/
+Authorization: Token eccd99424e05853f16f0feaf09ba179d8c3e8eb6
+
+###
+
+POST http://127.0.0.1:8000/api/v1/posts/
+Authorization: Token eccd99424e05853f16f0feaf09ba179d8c3e8eb6
+content-type: application/json
+
+{
+    "text": "Вечером собрались в редакции Русской мысли, чтобы поговорить о народном театре. Проект Шехтеля всем нравится.",
+}
